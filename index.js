@@ -1,31 +1,16 @@
-const fs = require("fs");
+const EventEmitter = require("events");
 
-const app = require("./app");
+const emitter = new EventEmitter();
 
-console.log(app);
+// register a listerner for baillRing event
 
-console.log(__filename);
-
-const name = "Tanvir";
-
-fs.writeFileSync("demo.txt", "Hello Programmer");
-
-fs.writeFileSync("demo.txt", "How are You");
-
-fs.appendFile(
-  "demo.txt",
-
-  " I am fine and  you",
-  (error) => {
-    if (error) throw error;
-    console.log("saved");
-  }
-);
-
-fs.readFile("demo.txt", (error, data) => {
-  console.log(data.toString());
+emitter.on("ballRing", (preoed) => {
+  console.log(`we need to Run!! ${preoed.preoed} plize ${preoed.sir} sir`);
 });
 
-fs.rmdir("demo.txt", (error) => {
-  console.log("remove successfully");
+// raise an event
+
+emitter.emit("ballRing", {
+  preoed: "Frist Preroed class is finished",
+  sir: "shopon",
 });
