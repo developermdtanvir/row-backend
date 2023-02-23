@@ -1,7 +1,5 @@
 const School = require("./school");
 
-const EventEmitter = require("events");
-
 const school = new School();
 
 // register a listerner for baillRing event
